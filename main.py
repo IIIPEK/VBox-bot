@@ -1,3 +1,4 @@
+import logging
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters, ContextTypes
 
@@ -18,9 +19,12 @@ def main():
 
     # Запускаем бота
     print("Бот запущен...")
-    application.run_polling()
+    try:
+        application.run_polling()
+    except Exception as e:
+        logging.error(f"Ошибка при запуске бота: {e}")
 
-    application.idle()
+    print("Бот остановлен.")
 
 if __name__ == '__main__':
     main()
