@@ -20,5 +20,7 @@ def main():
     print("Бот запущен...")
     application.run_polling()
 
+    application.idle()
+
 if __name__ == '__main__':
     main()
